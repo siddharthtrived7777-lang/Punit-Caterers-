@@ -441,7 +441,7 @@ export default function MenuExplorer() {
                           const rightColumn = sub.items.slice(half);
 
                           return (
-                            <div className="grid grid-cols-1 md:grid-cols-2 gap-x-10 gap-y-3 relative">
+                            <div className="grid grid-cols-2 gap-x-3 sm:gap-x-10 gap-y-3 relative">
                               {/* Left Column */}
                               <div className="space-y-3">
                                 {leftColumn.map((item, idx) => {
@@ -450,38 +450,38 @@ export default function MenuExplorer() {
                                     <div 
                                       key={`left-${idx}`} 
                                       onClick={() => toggleItem(item, activeCategory.name, sub.name)}
-                                      className={`p-3 rounded-xl border flex justify-between items-center space-x-3 cursor-pointer select-none transition-all duration-300 ${
+                                      className={`p-2.5 sm:p-3 rounded-xl border flex justify-between items-center space-x-1.5 sm:space-x-3 cursor-pointer select-none transition-all duration-300 ${
                                         isSelected 
                                           ? 'border-brand-red/30 bg-brand-red/[0.01] shadow-xs ring-1 ring-brand-red/10' 
                                           : 'border-gray-100 bg-white/65 backdrop-blur-xs hover:bg-white hover:border-brand-gold/20 hover:shadow-sm'
                                       }`}
                                     >
-                                      <div className="space-y-0.5 flex-1">
-                                        <div className="flex items-center space-x-1.5 flex-wrap gap-y-1">
+                                      <div className="space-y-0.5 flex-1 min-w-0 text-left">
+                                        <div className="flex items-center space-x-1 sm:space-x-1.5 flex-wrap gap-y-1">
                                           {/* Authentic Indian Pure Vegetarian tiny square sign on each item */}
-                                          <div className="border border-[#388E3C] p-0.5 rounded-xs w-3 h-3 flex items-center justify-center shrink-0">
-                                            <div className="w-1.5 h-1.5 bg-[#388E3C] rounded-full" />
+                                          <div className="border border-[#388E3C] p-0.5 rounded-xs w-2.5 h-2.5 sm:w-3 sm:h-3 flex items-center justify-center shrink-0">
+                                            <div className="w-1 h-1 sm:w-1.5 sm:h-1.5 bg-[#388E3C] rounded-full" />
                                           </div>
-                                          <h5 className="font-sans font-bold text-sm sm:text-base text-gray-900 leading-tight">{item.name}</h5>
+                                          <h5 className="font-sans font-bold text-xs sm:text-base text-gray-900 leading-tight">{item.name}</h5>
                                           
                                           {item.isPopular && (
-                                            <span className="inline-flex items-center gap-0.5 px-1.5 py-0.5 rounded-sm text-[9px] font-extrabold bg-amber-50 border border-amber-200 text-amber-700 uppercase tracking-wider">
-                                              <Sparkles className="w-2.5 h-2.5 text-brand-gold fill-brand-gold animate-pulse" /> Popular
+                                            <span className="inline-flex items-center gap-0.5 px-1 py-0.5 sm:px-1.5 sm:py-0.5 rounded-sm text-[8px] sm:text-[9px] font-extrabold bg-amber-50 border border-amber-200 text-amber-700 uppercase tracking-wider shrink-0">
+                                              <Sparkles className="w-2 sm:w-2.5 h-2 sm:h-2.5 text-brand-gold fill-brand-gold animate-pulse" /> Pop
                                             </span>
                                           )}
                                         </div>
                                         {item.description && (
-                                          <p className="text-xs text-gray-500 leading-normal font-sans pr-2 mt-0.5">{item.description}</p>
+                                          <p className="text-[10px] sm:text-xs text-gray-500 leading-normal font-sans pr-1 sm:pr-2 mt-0.5 line-clamp-2 sm:line-clamp-none">{item.description}</p>
                                         )}
                                       </div>
                                       <div className="shrink-0">
                                         {isSelected ? (
-                                          <div className="w-6 h-6 rounded-full bg-brand-red text-white flex items-center justify-center shadow-xs">
-                                            <Check className="w-3.5 h-3.5 stroke-[3]" />
+                                          <div className="w-5 h-5 sm:w-6 sm:h-6 rounded-full bg-brand-red text-white flex items-center justify-center shadow-xs">
+                                            <Check className="w-3 sm:w-3.5 h-3 sm:h-3.5 stroke-[3]" />
                                           </div>
                                         ) : (
-                                          <div className="w-6 h-6 rounded-full border border-gray-300 hover:border-brand-red text-gray-400 hover:text-brand-red flex items-center justify-center">
-                                            <Plus className="w-3.5 h-3.5" />
+                                          <div className="w-5 h-5 sm:w-6 sm:h-6 rounded-full border border-gray-300 hover:border-brand-red text-gray-400 hover:text-brand-red flex items-center justify-center">
+                                            <Plus className="w-3 sm:w-3.5 h-3 sm:h-3.5" />
                                           </div>
                                         )}
                                       </div>
@@ -492,7 +492,7 @@ export default function MenuExplorer() {
 
                               {/* Vertical divider line between the two columns */}
                               {rightColumn.length > 0 && (
-                                <div className="hidden md:block absolute left-1/2 top-1 bottom-1 w-[1px] bg-gray-200/80 -translate-x-1/2" />
+                                <div className="absolute left-1/2 top-1 bottom-1 w-[1px] bg-gray-200/80 -translate-x-1/2" />
                               )}
 
                               {/* Right Column */}
@@ -504,38 +504,38 @@ export default function MenuExplorer() {
                                       <div 
                                         key={`right-${idx}`} 
                                         onClick={() => toggleItem(item, activeCategory.name, sub.name)}
-                                        className={`p-3 rounded-xl border flex justify-between items-center space-x-3 cursor-pointer select-none transition-all duration-300 ${
+                                        className={`p-2.5 sm:p-3 rounded-xl border flex justify-between items-center space-x-1.5 sm:space-x-3 cursor-pointer select-none transition-all duration-300 ${
                                           isSelected 
                                             ? 'border-brand-red/30 bg-brand-red/[0.01] shadow-xs ring-1 ring-brand-red/10' 
                                             : 'border-gray-100 bg-white/65 backdrop-blur-xs hover:bg-white hover:border-brand-gold/20 hover:shadow-sm'
                                         }`}
                                       >
-                                        <div className="space-y-0.5 flex-1">
-                                          <div className="flex items-center space-x-1.5 flex-wrap gap-y-1">
+                                        <div className="space-y-0.5 flex-1 min-w-0 text-left">
+                                          <div className="flex items-center space-x-1 sm:space-x-1.5 flex-wrap gap-y-1">
                                             {/* Authentic Indian Pure Vegetarian tiny square sign on each item */}
-                                            <div className="border border-[#388E3C] p-0.5 rounded-xs w-3 h-3 flex items-center justify-center shrink-0">
-                                              <div className="w-1.5 h-1.5 bg-[#388E3C] rounded-full" />
+                                            <div className="border border-[#388E3C] p-0.5 rounded-xs w-2.5 h-2.5 sm:w-3 sm:h-3 flex items-center justify-center shrink-0">
+                                              <div className="w-1 h-1 sm:w-1.5 sm:h-1.5 bg-[#388E3C] rounded-full" />
                                             </div>
-                                            <h5 className="font-sans font-bold text-sm sm:text-base text-gray-900 leading-tight">{item.name}</h5>
+                                            <h5 className="font-sans font-bold text-xs sm:text-base text-gray-900 leading-tight">{item.name}</h5>
                                             
                                             {item.isPopular && (
-                                              <span className="inline-flex items-center gap-0.5 px-1.5 py-0.5 rounded-sm text-[9px] font-extrabold bg-amber-50 border border-amber-200 text-amber-700 uppercase tracking-wider">
-                                                <Sparkles className="w-2.5 h-2.5 text-brand-gold fill-brand-gold animate-pulse" /> Popular
+                                              <span className="inline-flex items-center gap-0.5 px-1 py-0.5 sm:px-1.5 sm:py-0.5 rounded-sm text-[8px] sm:text-[9px] font-extrabold bg-amber-50 border border-amber-200 text-amber-700 uppercase tracking-wider shrink-0">
+                                                <Sparkles className="w-2 sm:w-2.5 h-2 sm:h-2.5 text-brand-gold fill-brand-gold animate-pulse" /> Pop
                                               </span>
                                             )}
                                           </div>
                                           {item.description && (
-                                            <p className="text-xs text-gray-500 leading-normal font-sans pr-2 mt-0.5">{item.description}</p>
+                                            <p className="text-[10px] sm:text-xs text-gray-500 leading-normal font-sans pr-1 sm:pr-2 mt-0.5 line-clamp-2 sm:line-clamp-none">{item.description}</p>
                                           )}
                                         </div>
                                         <div className="shrink-0">
                                           {isSelected ? (
-                                            <div className="w-6 h-6 rounded-full bg-brand-red text-white flex items-center justify-center shadow-xs">
-                                              <Check className="w-3.5 h-3.5 stroke-[3]" />
+                                            <div className="w-5 h-5 sm:w-6 sm:h-6 rounded-full bg-brand-red text-white flex items-center justify-center shadow-xs">
+                                              <Check className="w-3 sm:w-3.5 h-3 sm:h-3.5 stroke-[3]" />
                                             </div>
                                           ) : (
-                                            <div className="w-6 h-6 rounded-full border border-gray-300 hover:border-brand-red text-gray-400 hover:text-brand-red flex items-center justify-center">
-                                              <Plus className="w-3.5 h-3.5" />
+                                            <div className="w-5 h-5 sm:w-6 sm:h-6 rounded-full border border-gray-300 hover:border-brand-red text-gray-400 hover:text-brand-red flex items-center justify-center">
+                                              <Plus className="w-3 sm:w-3.5 h-3 sm:h-3.5" />
                                             </div>
                                           )}
                                         </div>
