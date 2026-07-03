@@ -94,6 +94,12 @@ export default function MenuExplorer() {
     setActiveCategoryId(categoryId);
     
     setTimeout(() => {
+      // Smoothly scroll the mobile button into view
+      const btn = document.getElementById(`mobile-category-btn-${categoryId}`);
+      if (btn) {
+        btn.scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'center' });
+      }
+
       const el = document.getElementById('menu-display-area');
       if (el) {
         const rect = el.getBoundingClientRect();
@@ -103,10 +109,10 @@ export default function MenuExplorer() {
         let offset = 100;
         
         if (window.innerWidth < 1024) {
-          // On mobile/tablet, account for navbar + dynamic height of multi-row sticky category grid
+          // On mobile/tablet, account for navbar + dynamic height of single-row sticky category bar
           const tabs = document.getElementById('menu-mobile-tabs');
           const navbarHeight = window.innerWidth < 640 ? 56 : 68;
-          const tabsHeight = tabs ? tabs.getBoundingClientRect().height : 120;
+          const tabsHeight = tabs ? tabs.getBoundingClientRect().height : 60;
           offset = navbarHeight + tabsHeight + 12;
         } else {
           // On desktop, account for the main sticky navbar
@@ -257,23 +263,23 @@ export default function MenuExplorer() {
               </div>
 
               {/* Mobile Multi-Row Category Navigation Grid */}
-              <div className="block lg:hidden w-full sticky top-[56px] sm:top-[68px] bg-[#FDFCF7] z-20 py-3 border-b border-gray-100" id="menu-mobile-tabs">
-                <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-2 w-full">
+              <div className="block lg:hidden w-full sticky top-[56px] sm:top-[68px] bg-[#FDFCF7]/95 backdrop-blur-md z-20 py-2.5 px-4 border-b border-gray-100" id="menu-mobile-tabs">
+                <div className="grid grid-cols-3 sm:grid-cols-4 md:grid-cols-5 gap-1.5 w-full">
                   {menuCategories.map((category) => {
                     const isActive = category.id === activeCategoryId;
                     return (
                       <button
                         key={category.id}
                         onClick={() => handleCategorySelect(category.id)}
-                        className={`font-sans text-xs font-semibold px-3 h-10 rounded-full border transition-all flex items-center justify-center text-center leading-tight truncate ${
+                        className={`font-sans text-[10px] sm:text-xs font-bold p-1.5 min-h-[40px] rounded-lg border transition-all duration-200 flex items-center justify-center text-center leading-tight cursor-pointer ${
                           isActive
                             ? 'bg-brand-red text-white border-brand-red shadow-sm'
-                            : 'bg-white text-gray-700 border-gray-200 hover:border-brand-red/30'
+                            : 'bg-white text-gray-700 border-gray-200 hover:border-brand-red/20 hover:bg-amber-50/5'
                         }`}
                         id={`mobile-category-btn-${category.id}`}
                         title={category.name}
                       >
-                        <span className="truncate">{category.name}</span>
+                        {category.name}
                       </button>
                     );
                   })}
