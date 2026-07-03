@@ -1,0 +1,6 @@
+{
+  "name": "Punit Caterers",
+  "description": "Premium 100% Pure Vegetarian Catering Company in Ahmedabad, Gujarat.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
